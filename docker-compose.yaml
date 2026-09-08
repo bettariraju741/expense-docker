@@ -1,0 +1,25 @@
+version: "3"
+networks:
+  expense:
+  volumes:
+    mysql: #docker volume created mysql
+  services:
+    mysql:
+      image: bettari1993/mysql:v1
+      container_name: mysql # --name mysql
+      volumes:
+      - mysql:/var/lib/mysql # -v mysql:/var/lib/mysql
+    backend:
+      image: bettari1993/backend:v1
+      container_name: backend # --name mysql
+      depends_on:
+      - mysql
+    frontend: 
+      image: bettari1993/frontend:v1
+      container_name: frontend
+      ports:
+      - 80:80
+      depends_on:
+      - backend
+
+

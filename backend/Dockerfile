@@ -4,7 +4,6 @@ ENV DB_HOST="mysql"
 RUN addgroup -S expense && adduser -S expense -G expense
 RUN mkdir /opt/server
 RUN chown -R expense:expense /opt/server
-RUN mkdir /opt/server
 WORKDIR /opt/server
 COPY package.json .
 COPY *.js .
